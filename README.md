@@ -193,8 +193,23 @@ contract CeloGovernance {
     }
 }
 ```
+### Code Explained
+This is a smart contract for a Celo Governance system. It is written in Solidity and uses the Celo blockchain network. The contract allows users to create proposals, vote on proposals, and finalize proposals.
 
-In this code example, token holders can vote on a specific proposal by invoking the voteOnProposal function. They indicate their support by setting the support parameter to true or false. The function records the vote, updates the vote count accordingly, and emits an event to notify the network of the casted vote.
+- The contract defines a Proposal struct which stores important information about a proposal, such as its id, proposer, description, yesVotes, noVotes, and status. The status of a proposal can either be Active, Passed, or Rejected, which is defined using an enum.
+
+- The contract has two public mappings: proposals and hasVoted. The proposals mapping maps a proposal id to a Proposal struct, while the hasVoted mapping maps an address to a proposal id to a boolean value indicating whether the address has voted on that proposal.
+
+- The contract also has two public variables: proposalCount and votingPeriod. The proposalCount variable keeps track of the total number of proposals created, while the votingPeriod variable specifies the duration of the voting period in seconds.
+
+- The contract has three functions: createProposal, voteOnProposal, and finalizeProposal. 
+   - The createProposal function allows users to create a new proposal by providing a description. 
+   - The voteOnProposal function allows users to vote on a proposal by specifying the proposal id and whether they support the proposal or not. 
+   - The finalizeProposal function is called when the voting period has ended and determines the outcome of the proposal based on the vote count. If the proposal receives more yes votes than no votes, its status is set to Passed. Otherwise, its status is set to Rejected.
+
+- The contract also defines several events, such as ProposalCreated, VoteCasted, ProposalPassed, and ProposalRejected, which are emitted during the execution of the contract to notify users of important events.
+
+Overall, In this code example, token holders can vote on a specific proposal by invoking the voteOnProposal function. They indicate their support by setting the support parameter to true or false. The function records the vote, updates the vote count accordingly, and emits an event to notify the network of the casted vote.
 
 ## Benefits of Celo Governance
 ### Transparency and Inclusivity in decision-making
