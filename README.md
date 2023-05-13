@@ -29,7 +29,9 @@ The Celo Governance system stands at the heart of the Celo blockchain, enabling 
   - [Voting on Protocol Changes and Upgrades](#Voting-on-Protocol-Changes-and-Upgrades)
        - Types of protocol changes and upgrades
        - Process of voting on proposed changes
-       - Code example: Casting votes on proposed protocol changes
+      
+  - [Code Example](#Code-example)
+       - Code Explained
 
   - [Benefits of Celo Governance](#Benefits-of-Celo-Governance)
        - Transparency and inclusivity in decision-making
@@ -59,7 +61,7 @@ Celo is a blockchain platform designed to promote financial inclusion and create
 ### Importance of Governance
 Governance is a fundamental aspect of blockchain networks, as it allows for collective decision-making and ensures the integrity and sustainability of the ecosystem. Without a robust governance system, conflicts and disagreements may hinder progress and innovation. The Celo Governance system addresses these challenges by providing a framework for token holders to actively participate in the decision-making process.
 
-## Celo Governance Features
+## Understanding the Celo Governance System
 The Celo Governance system boasts several key features that enable token holders to contribute to the protocol evolution. Through a transparent and inclusive governance framework, token holders can propose and vote on various protocol changes and upgrades. The system ensures that decisions align with the best interests of the Celo ecosystem, promoting fairness and accountability.
 
 ## Celo: A Platform for Inclusion
