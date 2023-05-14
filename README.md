@@ -1,59 +1,67 @@
 # Exploring-the-Power-of-Celo-Governance-Empowering-Token-Holders-for-Protocol-Evolution
 
-## Table of Contents
-
-### 1. Introduction
-- Importance of governance in blockchain networks
-- Overview of the Celo Governance System
-- Significance of the Celo Governance system for the Celo ecosystem
-
-### 2. Celo: A Platform for Inclusion
-- Introduction to Celo and its goals
-- Accessibility and inclusivity of the Celo platform
-- Role of token holders within the Celo ecosystem
-
-### 3. Understanding the Celo Governance System
-- Key features of the Celo Governance system
-- Proposal creation and submission process
-- Voting mechanisms and participation of token holders
-
-### 4. Voting on Protocol Changes and Upgrades
-- Types of protocol changes and upgrades
-- Process of voting on proposed changes
-- Code  example: Casting votes on proposed protocol changes
-
-### 5. Benefits of Celo Governance
-- Transparency and inclusivity in decision-making
-- Accountability and trust within the community
-- The impact of community-driven governance
-
-### 6. Challenges and Limitations
--  Coordinating diverse perspectives and interests
-- Avoiding governance capture
-- Continuous improvement of the governance system
-
-### 7. Real-World Case Studies
-- Example 1: Voting on the introduction of a new stablecoin
-- Example 2: Voting on modifications to block reward distribution
-
-### 8. Conclusion
-- Recap of the Celo Governance System's Significance
-- Empowerment of token holders and community engagement
-- Commitment to refining and strengthening the governance system
-
-
-
-
 ## Introduction
 The Celo Governance system stands at the heart of the Celo blockchain, enabling token holders to actively participate in shaping the future of the network. By providing a decentralized decision-making process, this governance system empowers the Celo community to vote on protocol changes and upgrades. In this article, we will delve into the structure and significance of the Celo Governance system, highlighting how token holders play a crucial role in the evolution of the Celo ecosystem.
 
-### Overview of Celo
+
+## Table of Contents
+
+- [Exploring-the-Power-of-Celo-Governance-Empowering-Token-Holders-for-Protocol-Evolution
+](#Exploring-the-Power-of-Celo-Governance-Empowering-Token-Holders-for-Protocol-Evolution)
+  - [Introduction](#introduction)
+      - Importance of governance in blockchain networks
+      - Overview of the Celo Governance System
+      - Significance of the Celo Governance system for the Celo ecosystem
+      
+  - [Table of Contents](#table-of-contents)
+  - [Objective](#objective)
+  - [Overview of Celo](#Overview-of-Celo)
+  - [Celo: A Platform for Inclusion](#Celo-A-Platform-for-Inclusion)
+       - Introduction to Celo and its goals
+       - Accessibility and inclusivity of the Celo platform
+       - Role of token holders within the Celo ecosystem
+       -
+  - [Understanding the Celo Governance System](#Understanding-the-Celo-Governance-System)
+       - Key features of the Celo Governance system
+       - Proposal creation and submission process
+       - Voting mechanisms and participation of token holders
+
+  - [Voting on Protocol Changes and Upgrades](#Voting-on-Protocol-Changes-and-Upgrades)
+       - Types of protocol changes and upgrades
+       - Process of voting on proposed changes
+      
+  - [Code Example](#Code-example)
+       - Code Explained
+
+  - [Benefits of Celo Governance](#Benefits-of-Celo-Governance)
+       - Transparency and inclusivity in decision-making
+       - Accountability and trust within the community
+       - The impact of community-driven governance
+       
+  - [Challenges and Limitations](#Challenges-and-Limitations)
+       - Coordinating diverse perspectives and interests
+       - Avoiding governance capture
+       - Continuous improvement of the governance system
+
+  - [Real-World Case Studies](#Real-World-Case-Studies)
+        - Example 1: Voting on the introduction of a new stablecoin
+        - Example 2: Voting on modifications to block reward distribution
+
+  - [Conclusion](#Conclusion)
+       - Recap of the Celo Governance System's Significance
+       - Empowerment of token holders and community engagement
+       - Commitment to refining and strengthening the governance system
+
+## Objective
+This article aims to explain the significance of the Celo Governance system and how token holders play an important role in the evolution of the Celo ecosystem. At the end of this article, you will have a clear understanding of the Celo Governance system and its importance in the evolution of the Celo ecosystem. You will be familiar with the structure and features of the governance system, including the proposal creation and submission process, voting mechanisms, and participation opportunities for token holders. You will also have a grasp of the benefits of Celo Governance, challenges and limitations, and real-world case studies to demonstrate how the governance system works in practice.
+
+## Overview of Celo
 Celo is a blockchain platform designed to promote financial inclusion and create a decentralized financial system that is accessible to anyone with a smartphone. Built on the principles of transparency and affordability, Celo aims to empower individuals and communities around the world through its mobile-friendly infrastructure and digital currency, the Celo token.
 
 ### Importance of Governance
 Governance is a fundamental aspect of blockchain networks, as it allows for collective decision-making and ensures the integrity and sustainability of the ecosystem. Without a robust governance system, conflicts and disagreements may hinder progress and innovation. The Celo Governance system addresses these challenges by providing a framework for token holders to actively participate in the decision-making process.
 
-## Celo Governance Features
+## Understanding the Celo Governance System
 The Celo Governance system boasts several key features that enable token holders to contribute to the protocol evolution. Through a transparent and inclusive governance framework, token holders can propose and vote on various protocol changes and upgrades. The system ensures that decisions align with the best interests of the Celo ecosystem, promoting fairness and accountability.
 
 ## Celo: A Platform for Inclusion
@@ -107,7 +115,7 @@ Once a proposal is approved, the necessary steps are taken to implement the prop
 The process of voting on proposed changes in the Celo Governance system ensures that decisions are made collectively by token holders and reflects the consensus of the community. It allows for active participation, fosters transparency, and enables the platform to evolve in a way that aligns with the interests and needs of its stakeholders.
 
 ## Code Example
-```
+```solidity
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
@@ -187,8 +195,23 @@ contract CeloGovernance {
     }
 }
 ```
+### Code Explained
+This is a smart contract for a Celo Governance system. It is written in Solidity and uses the Celo blockchain network. The contract allows users to create proposals, vote on proposals, and finalize proposals.
 
-In this code example, token holders can vote on a specific proposal by invoking the voteOnProposal function. They indicate their support by setting the support parameter to true or false. The function records the vote, updates the vote count accordingly, and emits an event to notify the network of the casted vote.
+- The contract defines a Proposal struct which stores important information about a proposal, such as its id, proposer, description, yesVotes, noVotes, and status. The status of a proposal can either be Active, Passed, or Rejected, which is defined using an enum.
+
+- The contract has two public mappings: proposals and hasVoted. The proposals mapping maps a proposal id to a Proposal struct, while the hasVoted mapping maps an address to a proposal id to a boolean value indicating whether the address has voted on that proposal.
+
+- The contract also has two public variables: proposalCount and votingPeriod. The proposalCount variable keeps track of the total number of proposals created, while the votingPeriod variable specifies the duration of the voting period in seconds.
+
+- The contract has three functions: createProposal, voteOnProposal, and finalizeProposal. 
+   - The createProposal function allows users to create a new proposal by providing a description. 
+   - The voteOnProposal function allows users to vote on a proposal by specifying the proposal id and whether they support the proposal or not. 
+   - The finalizeProposal function is called when the voting period has ended and determines the outcome of the proposal based on the vote count. If the proposal receives more yes votes than no votes, its status is set to Passed. Otherwise, its status is set to Rejected.
+
+- The contract also defines several events, such as ProposalCreated, VoteCasted, ProposalPassed, and ProposalRejected, which are emitted during the execution of the contract to notify users of important events.
+
+Overall, In this code example, token holders can vote on a specific proposal by invoking the voteOnProposal function. They indicate their support by setting the support parameter to true or false. The function records the vote, updates the vote count accordingly, and emits an event to notify the network of the casted vote.
 
 ## Benefits of Celo Governance
 ### Transparency and Inclusivity in decision-making
