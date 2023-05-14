@@ -107,7 +107,12 @@ The process of voting on proposed changes in the Celo Governance system ensures 
 
 pragma solidity ^0.8.0;
 
-contract CeloGovernance {
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
+contract CeloGovernance is Ownable {
+    using SafeMath for uint256;
+
     struct Proposal {
         uint256 id;
         address proposer;
@@ -127,14 +132,14 @@ contract CeloGovernance {
 
     event ProposalCreated(uint256 indexed proposalId, address indexed proposer, string description);
     event VoteCasted(address indexed voter, uint256 indexed proposalId, bool support);
-    event ProposalPassed(uint256 indexed proposalId);
-    event ProposalRejected(uint256 indexed proposalId);
+    event ProposalPassed(uint256 indexed proposalId, uint256 yesVotes, uint256 noVotes);
+    event ProposalRejected(uint256 indexed proposalId, uint256 yesVotes, uint256 noVotes);
 
     constructor(uint256 _votingPeriod) {
         votingPeriod = _votingPeriod;
     }
 
-    function createProposal(string memory _description) external {
+    function createProposal(string memory _description) external onlyOwner {
         proposalCount++;
         proposals[proposalCount] = Proposal({
             id: proposalCount,
@@ -153,16 +158,16 @@ contract CeloGovernance {
         require(hasVoted[msg.sender][proposalId] == false, "Already voted on this proposal");
 
         if (support) {
-            proposals[proposalId].yesVotes += 1;
+            proposals[proposalId].yesVotes = proposals[proposalId].yesVotes.add(1);
         } else {
-            proposals[proposalId].noVotes += 1;
+            proposals[proposalId].noVotes = proposals[proposalId].noVotes.add(1);
         }
 
         hasVoted[msg.sender][proposalId] = true;
         emit VoteCasted(msg.sender, proposalId, support);
 
         // Check if the voting period has ended
-        if (block.timestamp >= votingPeriod) {
+        if (block.number >= votingPeriod) {
             finalizeProposal(proposalId);
         }
     }
@@ -174,13 +179,14 @@ contract CeloGovernance {
         // Determine the outcome based on the vote count
         if (proposal.yesVotes > proposal.noVotes) {
             proposal.status = ProposalStatus.Passed;
-            emit ProposalPassed(proposalId);
+            emit ProposalPassed(proposalId, proposal.yesVotes, proposal.noVotes);
         } else {
             proposal.status = ProposalStatus.Rejected;
-            emit ProposalRejected(proposalId);
+            emit ProposalRejected(proposalId, proposal.yesVotes, proposal.noVotes);
         }
     }
 }
+
 ```
 
 In this code example, token holders can vote on a specific proposal by invoking the voteOnProposal function. They indicate their support by setting the support parameter to true or false. The function records the vote, updates the vote count accordingly, and emits an event to notify the network of the casted vote.
