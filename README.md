@@ -1,4 +1,4 @@
-# Exploring-the-Power-of-Celo-Governance-Empowering-Token-Holders-for-Protocol-Evolution
+# Exploring Cairo 
 
 ## Introduction
 The Celo Governance system stands at the heart of the Celo blockchain, enabling token holders to actively participate in shaping the future of the network. By providing a decentralized decision-making process, this governance system empowers the Celo community to vote on protocol changes and upgrades. In this article, we will delve into the structure and significance of the Celo Governance system, highlighting how token holders play a crucial role in the evolution of the Celo ecosystem.
